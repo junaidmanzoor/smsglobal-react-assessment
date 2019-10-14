@@ -36,13 +36,13 @@ export default class AppNavbar extends Component {
             <Nav className="ml-auto" navbar>
               {/* put any navbar item code here */}
                <NavItem>
-              <NavLink href="/notes">Notes</NavLink>
+              <NavLink href="/settings">Settings</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/item2">Item 2</NavLink>
+              <NavLink href="/messages">Send Messages</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/item3">Item 3</NavLink>
+              <NavLink href="/reports">Reports</NavLink>
             </NavItem>
             </Nav>
           </Collapse>
