@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js start-api",
+    "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "build-css": "rm -rf src/styles/*.css && node-sass src/styles/App.scss  src/styles/App.css --include-path ./src --include-path ./node_modules",

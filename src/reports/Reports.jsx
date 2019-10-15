@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Button } from "reactstrap";
+import { Table } from "reactstrap";
 
 const MessageRow = ({ dateTime, origin, destination, message, status }) => {
   const date = new Date(dateTime);
