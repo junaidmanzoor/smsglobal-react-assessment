@@ -1,30 +1,35 @@
 import React, { Component } from "react";
 import { arrayOf, func, shape, string } from "prop-types";
-import { Table } from "reactstrap";
+import { Table, Button } from "reactstrap";
 
-const ApiKeyRow = ({ name, apiKey, apiSecret }) => {
+const ApiKeyRow = ({ index, name, apiKey, apiSecret, onDelete }) => {
   return (
     <tr>
       <td>{name}</td>
       <td>{apiKey}</td>
       <td>{apiSecret}</td>
+      <td>
+        <Button onClick={e => onDelete(index)} color="link">
+          delete
+        </Button>
+      </td>
     </tr>
   );
 };
 
 class ApiKeysList extends Component {
   render() {
-    const { apiKeys, deleteNote } = this.props;
+    const { apiKeys, deleteApiKey } = this.props;
     const list = [];
     apiKeys.forEach((item, index) => {
       list.push(
         <ApiKeyRow
           key={index}
-          id={item.id}
+          index={index}
           name={item.name}
           apiKey={item.key}
           apiSecret={item.secret}
-          deleteNote={deleteNote}
+          onDelete={deleteApiKey}
         />
       );
     });
@@ -53,7 +58,7 @@ ApiKeysList.propTypes = {
       secret: string
     })
   ).isRequired,
-  deleteNote: func.isRequired
+  deleteApiKey: func.isRequired
 };
 
 export default ApiKeysList;

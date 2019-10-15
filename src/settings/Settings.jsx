@@ -14,7 +14,7 @@ class Settings extends Component {
     });
   };
   render() {
-    const { saveApiKey, apiKeys = [] } = this.props;
+    const { deleteApiKey, saveApiKey, apiKeys = [] } = this.props;
     return (
       <div>
         <Button color="link" onClick={this.toggleNewNoteDlg}>
@@ -27,7 +27,7 @@ class Settings extends Component {
           onDismiss={this.toggleNewNoteDlg}
         />
 
-        {apiKeys.length > 0 && <ApiKeysList apiKeys={apiKeys} />}
+        {apiKeys.length > 0 && <ApiKeysList apiKeys={apiKeys} deleteApiKey={deleteApiKey} />}
       </div>
     );
   }

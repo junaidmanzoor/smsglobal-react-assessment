@@ -1,23 +1,24 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import Notes from "./Notes";
+import Reports from "./Reports";
 import * as actions from "./actions";
 
 function mapStateToProps(state) {
   return {
-    notes: state.notesReducer
+    ...state.reportsReducer,
+    ...state.settingsReducer
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    ...bindActionCreators(actions, dispatch)
   };
 }
 
-const NotesContainer = connect(
+const ReportsContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Notes);
-export default NotesContainer;
+)(Reports);
+export default ReportsContainer;

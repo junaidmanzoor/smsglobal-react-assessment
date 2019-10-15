@@ -1,1 +1,2 @@
 export const SAVE_SETTINGS = 'SAVE_SETTINGS'
+export const DELETE_SETTINGS = 'DELETE_SETTINGS'

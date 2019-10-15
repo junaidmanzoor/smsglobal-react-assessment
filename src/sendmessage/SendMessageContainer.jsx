@@ -6,7 +6,8 @@ import * as actions from "./actions";
 
 function mapStateToProps(state) {
   return {
-    ...state.sendMessageReducer
+    ...state.sendMessageReducer,
+    ...state.settingsReducer
   };
 }
 

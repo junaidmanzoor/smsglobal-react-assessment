@@ -7,6 +7,18 @@ const options = {
   port: "443"
 };
 
+export function fetchMessages(settings) {
+  const requestOptions = { ...settings, ...options, method: "GET" };
+  return fetch(API_URL, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `${generateAuthHeader(requestOptions)}`
+    }
+  });
+}
+
 export function sendMessage(message, settings) {
   const requestOptions = { ...settings, ...options, method: "POST" };
   return fetch(API_URL, {

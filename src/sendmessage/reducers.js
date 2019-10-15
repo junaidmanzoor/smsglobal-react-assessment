@@ -13,10 +13,4 @@ function sendMessageReducer(state = {}, action) {
   }
 }
 
-// function filterArrayByValue(arr, value) {
-//   return arr.filter(item => {
-//     return item.id !== value;
-//   });
-// }
-
 export default sendMessageReducer;

@@ -1,12 +1,10 @@
 import * as types from "./actionTypes";
 import * as smsApi from "../api/smsApi";
 
-const MESSAGE_CHAR_LIMIT = 160;
-
 export function sendMessage(payload, settings) {
   const { origin, destination, message } = payload;
   const messages = [];
-  const splits = message.match(/.{1,MESSAGE_CHAR_LIMIT}/g);
+  const splits = message.match(/.{1,160}/g);
   splits.forEach(s => {
     messages.push({
       origin,

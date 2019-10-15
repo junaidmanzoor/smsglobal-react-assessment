@@ -16,12 +16,16 @@ class SendMessage extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    const { sendMessage } = this.props;
+    const { sendMessage, apiKeys } = this.props;
     const { origin, destination, message } = this.state;
-    const settings = {
-      apiKey: "apiKey",
-      apiSecret: "apiSecret"
-    };
+    let settings = {};
+    if (apiKeys.length > 0) {
+      settings = {
+        apiKey: apiKeys[0].key,
+        apiSecret: apiKeys[0].secret
+      };
+    }
+
     return (
       <Form>
         <FormGroup>
