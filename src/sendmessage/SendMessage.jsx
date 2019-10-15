@@ -16,7 +16,7 @@ class SendMessage extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    const { sendMessage, apiKeys } = this.props;
+    const { sendMessage, apiKeys, sendingMessage } = this.props;
     const { origin, destination, message } = this.state;
     let settings = {};
     if (apiKeys.length > 0) {
@@ -69,6 +69,7 @@ class SendMessage extends Component {
           )}
         </FormGroup>
         <Button
+          disabled={sendingMessage}
           onClick={e => sendMessage(this.state, settings)}
           color="primary"
         >

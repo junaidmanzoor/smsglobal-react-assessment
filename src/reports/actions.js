@@ -3,6 +3,9 @@ import * as smsApi from "../api/smsApi";
 
 export function fetchMessages(settings) {
   return async dispatch => {
+    dispatch({
+      type: types.FETCH_MESSAGES_REQUEST
+    });
     smsApi.fetchMessages(settings).then(
       response => {
         if (!response.ok) {

@@ -14,6 +14,9 @@ export function sendMessage(payload, settings) {
   });
 
   return dispatch => {
+    dispatch({
+      type: types.SEND_MESSAGE_REQUEST
+    });
     smsApi.sendMessage({ messages }, settings).then(
       response => {
         if (!response.ok) {

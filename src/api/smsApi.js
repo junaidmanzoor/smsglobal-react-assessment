@@ -10,7 +10,7 @@ const options = {
 export function fetchMessages(settings) {
   const requestOptions = { ...settings, ...options, method: "GET" };
   return fetch(API_URL, {
-    method: "GET",
+    method: requestOptions.method,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -22,7 +22,7 @@ export function fetchMessages(settings) {
 export function sendMessage(message, settings) {
   const requestOptions = { ...settings, ...options, method: "POST" };
   return fetch(API_URL, {
-    method: "POST",
+    method: requestOptions.method,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",

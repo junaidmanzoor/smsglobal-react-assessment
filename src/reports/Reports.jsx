@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Table, Button } from "reactstrap";
 
 const MessageRow = ({ dateTime, origin, destination, message, status }) => {
+  const date = new Date(dateTime);
   return (
     <tr>
-      <td>{dateTime}</td>
+      <td>{`${date.toDateString()} ${date.toLocaleTimeString()}`}</td>
       <td>{origin}</td>
       <td>{destination}</td>
       <td>{message}</td>
@@ -27,25 +28,30 @@ class Reports extends Component {
     }
   }
   render() {
-    const { messages = [] } = this.props;
+    const { messages = [], fetchingMessages } = this.props;
     const list = [];
     messages.forEach((item, index) => {
       list.push(<MessageRow key={index} {...item} />);
     });
 
     return (
-      <Table striped>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Origin</th>
-            <th>Destination</th>
-            <th>Message</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>{list}</tbody>
-      </Table>
+      <div>
+        {!fetchingMessages && (
+          <Table striped>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Message</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>{list}</tbody>
+          </Table>
+        )}
+        {fetchingMessages && <p>Fetching messages..</p>}
+      </div>
     );
   }
 }
